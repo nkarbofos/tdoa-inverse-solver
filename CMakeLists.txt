@@ -12,11 +12,21 @@ find_package(Eigen3 3.3 REQUIRED NO_MODULE)
 
 add_executable(tdoa_solver 
     src/main.cpp 
-    src/solver.cpp 
-    src/types.cpp
+    src/solver.cpp
 )
 
 target_link_libraries(tdoa_solver 
     Eigen3::Eigen
 )
 
+if(BUILD_TESTS)
+    enable_testing()
+    add_executable(tdoa_tests 
+        tests/test_gradient.cpp 
+        src/solver.cpp
+    )
+    target_link_libraries(tdoa_tests 
+        Eigen3::Eigen
+    )
+    add_test(NAME gradient_test COMMAND tdoa_tests)
+endif()

@@ -40,7 +40,6 @@ InputData generateTestData(bool add_noise = false, double noise_level = 0.01) {
 }
 
 int main() {
-    std::cout << "no noise test\n";
     InputData data = generateTestData(false);
     TDoASolver solver(data);
     

@@ -174,7 +174,7 @@ std::optional<Parameters> TDoASolver::solve(const Parameters& initial, const Sol
     int patience_cnt = 0;
     
     if (config.verbose) {
-        bool grad_ok = checkGradient(params);
+        bool grad_ok = checkGradient(params, 1e-3);
         std::cout << "grad_ok: " << grad_ok << "\n";
         std::cout << "prev_loss: " << prev_loss << "\n";
     }
