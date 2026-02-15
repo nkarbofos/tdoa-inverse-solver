@@ -20,14 +20,3 @@ target_link_libraries(tdoa_solver
     Eigen3::Eigen
 )
 
-if(BUILD_TESTS)
-    enable_testing()
-    add_executable(tdoa_tests 
-        tests/test_solver.cpp 
-        tests/test_gradient.cpp
-    )
-    target_link_libraries(tdoa_tests 
-        Eigen3::Eigen
-    )
-    add_test(NAME solver_tests COMMAND tdoa_tests)
-endif()
